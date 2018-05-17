@@ -29,10 +29,38 @@ html {
     position: relative;
     min-height: 100% ;
 }
+
 body {
     /* Margin bottom by footer height */
     margin-bottom: 60px;
 }
+
+.avatar-img-wrap {
+    width: 30px;
+    height: 30px;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align:middle;
+    margin-right: 8px;
+}
+
+.avatar-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fil:cover;
+}
+
+
+
+.users-show-page {
+    .user-info {
+        .thumbnail {
+            display: inline-block;
+            margin-bottom: 0;
+        }
+    }
+}
+
 
 .footer {
     position: absolute;
@@ -55,7 +83,10 @@ body {
             }
         }
     }
+
 }
+
+
 
 /* User register page */
 .register-page {

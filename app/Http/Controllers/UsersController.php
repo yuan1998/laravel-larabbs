@@ -33,7 +33,7 @@ class UsersController extends Controller
         $data = $request->all();
 
         if($avatar = $request->avatar){
-            $avatar_r = $upload->save($avatar,'avatars',$user->id);
+            $avatar_r = $upload->save($avatar,'avatars',$user->id,362);
             if($avatar_r){
                 $data['avatar'] = $avatar_r['path'];
             }
