@@ -24,9 +24,9 @@ class ImageUploadHandler
 
         $upload_path = public_path() . '/' . $folder_name;
 
-        $ext = strtolower($file->getClientOriginalExtension()) ?: 'png';
+        $ext         = strtolower($file->getClientOriginalExtension()) ?: 'png';
 
-        $filename = $file_prefix . '_' . time() . '_' . str_random(10) . '.' . $ext;
+        $filename    = $file_prefix . '_' . time() . '_' . str_random(10) . '.' . $ext;
 
 
         if(!in_array($ext,$this->allowed_ext)){
