@@ -12,14 +12,14 @@ class Topic extends Model
 
     public function category ()
     {
-        return $this->belongsto(Category::class);
+        return $this->belongsTo(Category::class);
     }
 
 
 
     public function user ()
     {
-        return $this->belongsto(User::class);
+        return $this->belongsTo(User::class);
     }
 
 
