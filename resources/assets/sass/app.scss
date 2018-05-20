@@ -42,6 +42,7 @@ body {
     display: inline-block;
     vertical-align:middle;
     margin-right: 8px;
+    margin-top: -10px;
 }
 
 .avatar-img-wrap img {
@@ -103,7 +104,8 @@ body {
 
 
 /* Topic Index Page */
-.topics-index-page {
+.topics-index-page ,
+.categories-show-page{
     .topic-list {
         .nav > li > a {
             position: relative;
