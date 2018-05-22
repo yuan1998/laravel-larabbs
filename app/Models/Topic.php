@@ -5,7 +5,7 @@ namespace App\Models;
 class Topic extends Model
 {
     protected $fillable = [
-        'title', 'body', 'user_id', 'category_id', 'reply_count', 'last_reply_user_id', 'order', 'excerpt', 'slug'
+        'title', 'body', 'excerpt', 'slug', 'category_id'
     ];
 
 
@@ -26,6 +26,7 @@ class Topic extends Model
 
     public function scopeWithOrder ($query , $order)
     {
+
         switch ($order)
         {
             case 'recent' :
@@ -36,6 +37,7 @@ class Topic extends Model
         }
 
         return $query->with('user' , 'category' );
+
     }
 
 

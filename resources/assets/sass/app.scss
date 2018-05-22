@@ -35,6 +35,29 @@ body {
             }
         }
     }
+
+    .dropdown > a {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .avatar-img-wrap {
+        width: 30px;
+        height: 30px;
+        overflow: hidden;
+        display: inline-block;
+        vertical-align:middle;
+        margin-right: 8px;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fil:cover;
+        }
+
+    }
+
+
 }
 
 
@@ -49,21 +72,7 @@ body {
     margin-bottom: 60px;
 }
 
-.avatar-img-wrap {
-    width: 30px;
-    height: 30px;
-    overflow: hidden;
-    display: inline-block;
-    vertical-align:middle;
-    margin-right: 8px;
-    margin-top: -10px;
-}
 
-.avatar-img-wrap img {
-    width: 100%;
-    height: 100%;
-    object-fil:cover;
-}
 
 
 
@@ -74,6 +83,7 @@ body {
             margin-bottom: 0;
         }
     }
+
     .nav-tabs {
         margin-bottom: 20px;
 

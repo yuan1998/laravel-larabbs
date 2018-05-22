@@ -8377,6 +8377,26 @@ body {
   margin-right: 8px;
 }
 
+.navbar-static-top .dropdown > a {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.navbar-static-top .avatar-img-wrap {
+  width: 30px;
+  height: 30px;
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+.navbar-static-top .avatar-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fil: cover;
+}
+
 /* Sticky footer styles */
 
 html {
@@ -8387,22 +8407,6 @@ html {
 body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
-}
-
-.avatar-img-wrap {
-  width: 30px;
-  height: 30px;
-  overflow: hidden;
-  display: inline-block;
-  vertical-align: middle;
-  margin-right: 8px;
-  margin-top: -10px;
-}
-
-.avatar-img-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fil: cover;
 }
 
 .users-show-page .user-info .thumbnail {
