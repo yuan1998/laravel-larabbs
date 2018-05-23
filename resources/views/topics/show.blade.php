@@ -16,7 +16,7 @@
                 <div class="media">
                     <div align="center">
                         <a href="{{ route('users.show', $topic->user->id) }}">
-                            <img class="thumbnail img-responsive" src="{{ $topic->user->avatar }}" width="300px" height="300px">
+                            <img class="thumbnail img-responsive" src="{{ $topic->user->avatar ?: 'https://fsdhubcdn.phphub.org/uploads/images/201709/20/1/PtDKbASVcz.png?imageView2/1/w/600/h/600' }}" width="300px" height="300px">
                         </a>
                     </div>
                 </div>
