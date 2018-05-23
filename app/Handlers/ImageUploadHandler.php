@@ -63,7 +63,7 @@ class ImageUploadHandler
             // 防止裁图时图片尺寸变大
             $constraint->upsize();
 
-        })
+        });
 
         $img->save();
 
