@@ -9,11 +9,12 @@ class BaiduTranslate {
 
 
 
-    public static function slugTranslate($text ='')
+    public static function slugTranslate( $text ='' )
     {
 
-        if(!$text)
-            return false;
+
+        if(empty($text))
+            return;
 
 
 
@@ -60,6 +61,8 @@ class BaiduTranslate {
         $key   = config('services.baidu_translate.key');
 
 
+        var_dump($appid , $key);
+
         if(empty($appid) || empty($key))
             return false;
 
@@ -71,9 +74,6 @@ class BaiduTranslate {
 
         $result   = json_decode($response->getBody(), true);
 
-        var_dump($result);
-
-
         $dst      = $result['trans_result'][0]['dst'];
 
 
@@ -84,10 +84,8 @@ class BaiduTranslate {
 
     public static function pinyin ($text)
     {
-        $py = app(Pinyin::class);
 
-        return str_slug($py->permalink($text));
-
+        return str_slug(app(Pinyin::class)->permalink($text));
 
     }
 
