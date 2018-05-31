@@ -18,6 +18,7 @@ class User extends Authenticatable
         'name', 'email', 'password','info','avatar'
     ];
 
+
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -26,6 +27,16 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+
+
+
+    public function replies ()
+    {
+        return $this->hasMany(Reply::class);
+    }
+
+
 
 
     public function topics ()

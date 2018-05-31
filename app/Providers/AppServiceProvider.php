@@ -16,6 +16,7 @@ class AppServiceProvider extends ServiceProvider
 
         // $this->registerPolicies();
 		\App\Models\User::observe(\App\Observers\UserObserver::class);
+		\App\Models\Reply::observe(\App\Observers\ReplyObserver::class);
 
 
         \Carbon\Carbon::setLocale('zh');
