@@ -47,5 +47,22 @@ class UsersTableSeeder extends Seeder
         // 插入到数据库中
         User::insert($user_array);
 
+
+        $user =  User::find(1);
+
+        $user->email = "chizhiyueshu@gmail.com";
+        $user->name = "Yuan1998";
+        $user->save();
+
+        $user->assignRole('Founder');
+
+
+        // 将 2 号用户指派为『管理员』
+        $user = User::find(2);
+        $user->emial = "976629445@qq.com";
+        $user->name = "chizhiyueshu";
+
+        $user->assignRole('Maintainer');
+
     }
 }
