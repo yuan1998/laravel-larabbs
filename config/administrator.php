@@ -83,9 +83,11 @@ return array(
             'roles',
             'permissions',
         ],
-        "话题管理" => [
+        '内容管理' => [
+            'categories',
             'topics',
-        ]
+            'replies',
+        ],
     ],
 
 
