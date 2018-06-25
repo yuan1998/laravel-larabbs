@@ -7,6 +7,13 @@ return [
     'single'  => '话题',
     'model'   => Topic::class,
 
+
+    'action_permissions' => [
+        'delete' => function () {
+            return Auth::user()->hasRole("Founder");
+        },
+    ],
+
     'columns' => [
 
         'id' => [
@@ -23,7 +30,6 @@ return [
             'title'    => '作者',
             'sortable' => false,
             'output'   => function ($value, $model) {
-
                 $avatar = $model->user['avatar'];
                 $value = empty($avatar) ? 'N/A' : '<img src="'.$avatar.'" style="height:22px;width:22px"> ' . $model->user['name'];
 
