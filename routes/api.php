@@ -16,3 +16,22 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+
+/*
+$sms = app('easysms');
+;
+try {
+    $sms->send(18592071704, [
+        'content'  => '您的验证码是1234。如非本人操作，请忽略本短信',
+    ]);
+} catch (\Overtrue\EasySms\Exceptions\NoGatewayAvailableException $exception) {
+    $message = $exception->getException('qcloud')->getMessage();
+    dd($message);
+}
+
+*/
+
+
+
