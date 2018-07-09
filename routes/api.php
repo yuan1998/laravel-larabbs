@@ -41,5 +41,35 @@ $api->version('v1', [
 
 });
 
+/*
+
+{
+	"access_token":"11_Tem722Qt7PI8sIlodGz9VLiz3Rg28BoG5qzYQkDS96e7IanikhgnIztTvnSHBngzJR5LKZ627SAEQ5MNTDeM-A",
+	"expires_in":7200,
+	"refresh_token":"11_JjR_HqhdXxgBENUKYgedNd9UOXDR1kLnyCos2jsU8Vha--GQYWhsk6J1s6JptSppiY7Obb7eRC3Tknipw-tmTQ",
+	"openid":"oA6Cp1SXstzmfEnUWarqjO3__MCY",
+	"scope":"snsapi_userinfo"	
+}
+
+
+https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx212073a1377d68b5&redirect_uri=http://larabbs.test&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect
+
+
+https://api.weixin.qq.com/sns/oauth2/access_token?appid=wx212073a1377d68b5&secret=2916577106585a45dd0002eef8369c30&code=081TznVK1Btpj50kC8SK1BriVK1TznVC&grant_type=authorization_code
+
+
+https://api.weixin.qq.com/sns/userinfo?access_token=11_Tem722Qt7PI8sIlodGz9VLiz3Rg28BoG5qzYQkDS96e7IanikhgnIztTvnSHBngzJR5LKZ627SAEQ5MNTDeM-A&openid=oA6Cp1SXstzmfEnUWarqjO3__MCY&lang=zh_CN
+
+
+$accessToken = '11_Tem722Qt7PI8sIlodGz9VLiz3Rg28BoG5qzYQkDS96e7IanikhgnIztTvnSHBngzJR5LKZ627SAEQ5MNTDeM';
+
+$code = '081ZdZud0utVxt1bOwvd0JJHud0ZdZuh';
+$driver = Socialite::driver('weixin');
+$response = $driver->getAccessTokenResponse($code);
+$driver->setOpenId($response['openid']);
+$oauthUser = $driver->userFromToken($response['access_token']);
+
+*/
+
 
 
