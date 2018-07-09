@@ -36,6 +36,10 @@ $api->version('v1', [
 		$api->post('captchas', 'CaptchasController@store')
 		    ->name('api.captchas.store');
 
+        // 第三方登录
+        $api->post('socials/{social_type}/authorizations', 'AuthorizationsController@socialStore')
+            ->name('api.socials.authorizations.store');
+
 
     });
 
@@ -55,13 +59,13 @@ $api->version('v1', [
 https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx212073a1377d68b5&redirect_uri=http://larabbs.test&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect
 
 
-https://api.weixin.qq.com/sns/oauth2/access_token?appid=wx212073a1377d68b5&secret=2916577106585a45dd0002eef8369c30&code=081TznVK1Btpj50kC8SK1BriVK1TznVC&grant_type=authorization_code
+https://api.weixin.qq.com/sns/oauth2/access_token?appid=wx212073a1377d68b5&secret=2916577106585a45dd0002eef8369c30&code=0614LFcW1140tV0S0W9W1TVzcW14LFcu&grant_type=authorization_code
 
 
 https://api.weixin.qq.com/sns/userinfo?access_token=11_Tem722Qt7PI8sIlodGz9VLiz3Rg28BoG5qzYQkDS96e7IanikhgnIztTvnSHBngzJR5LKZ627SAEQ5MNTDeM-A&openid=oA6Cp1SXstzmfEnUWarqjO3__MCY&lang=zh_CN
 
 
-$accessToken = '11_Tem722Qt7PI8sIlodGz9VLiz3Rg28BoG5qzYQkDS96e7IanikhgnIztTvnSHBngzJR5LKZ627SAEQ5MNTDeM';
+$accessToken = '11_lppCuvwSCIDcq6HJFTD9V3l1lT2IHY3AgsV13Z-wztl0S92bo50jTs29nc812QEOxlXaD7v0wukQTfs0iVL7QQ';
 
 $code = '081ZdZud0utVxt1bOwvd0JJHud0ZdZuh';
 $driver = Socialite::driver('weixin');
