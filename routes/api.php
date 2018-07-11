@@ -51,6 +51,10 @@ $api->version('v1', [
         $api->delete('authorizations/current', 'AuthorizationsController@destroy')
             ->name('api.authorizations.destroy');
 
+        // 携带 头部 authorization 请求,测试是否登陆,测试通过. 
+        $api->get('test/check','AuthorizationsController@checklogin')
+            ->name('api.test.check');
+
 
     });
 

@@ -92,6 +92,11 @@ class AuthorizationsController extends Controller
         return $this->response->noContent();
     }
 
+    public function checklogin ()
+    {
+        return $this->response()->array(\Auth::guard('api')->user());
+    }
+
 
     protected function respondWithToken($token)
     {
@@ -101,6 +106,8 @@ class AuthorizationsController extends Controller
             'expires_in' => \Auth::guard('api')->factory()->getTTL() * 60
         ]);
     }
+
+
 
 
 
