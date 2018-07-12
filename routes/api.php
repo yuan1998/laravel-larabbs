@@ -19,7 +19,7 @@ $api = app('Dingo\Api\Routing\Router');
 
 $api->version('v1', [
     'namespace' => 'App\Http\Controllers\Api',
-    'middleware' => ['serializer:data_array', 'bindings']
+    'middleware' => ['serializer:array', 'bindings']
 ], function ($api) {
     $api->group([
         'middleware' => 'api.throttle',
@@ -55,6 +55,18 @@ $api->version('v1', [
         // 获取分类列表
         $api->get('categories', 'CategoriesController@index')
             ->name('api.categories.index');
+
+        //获取话题列表
+        $api->get('topics', 'TopicsController@index')
+            ->name('api.topics.index');
+
+        // 获取单个话题
+        $api->get('topics/{topic}', 'TopicsController@show')
+            ->name('api.topics.show');
+
+        // 获取用户下的所有话题
+        $api->get('users/{user}/topics', 'TopicsController@userIndex')
+            ->name('api.users.topics.index');
 
 
         // 需要 token 验证的接口
