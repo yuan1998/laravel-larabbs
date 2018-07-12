@@ -28,7 +28,10 @@ class ReplyObserver
 
         $topic->increment('reply_count',1);
 
-        $topic->user->notify(new TopicReplied($reply));
+        // 如果评论的作者不是话题的作者，才需要通知
+        if ( ! $reply->user->isAuthorOf($topic)) {
+            $topic->user->notify(new TopicReplied($reply));
+        }
 
     }
 
