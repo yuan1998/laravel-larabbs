@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Http\Requests\Api\WxappAuthorizationRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\Api\SocialAuthorizationRequest;
@@ -58,7 +59,7 @@ class AuthorizationsController extends Controller
                 break;
         }
 
-        $token = Auth::guard('api')->fromUser($user);
+        $token = \Auth::guard('api')->fromUser($user);
         return $this->respondWithToken($token)->setStatusCode(201);
     }
 
@@ -78,6 +79,52 @@ class AuthorizationsController extends Controller
         }
 
         return $this->respondWithToken($token)->setStatusCode(201);
+    }
+
+    public function weappStore (WxappAuthorizationRequest $request)
+    {
+
+        $code = $request->code;
+
+        $miniProgram = \EasyWeChat::miniProgram();
+        $data = $miniProgram->auth->session($code);
+
+
+        if( isset($data['errcode']) )
+            return $this->response->errorUnauthorized('Code 不正确');
+
+        $user = User::where('weapp_openid', $data['openid'])->first();
+
+        $arrtrubutes['weixin_session_key'] = $data['session_key'];
+
+
+        if(!$user) {
+            if(!$request->username){
+                return $this->response->errorForBidden('用户不存在');
+            }
+
+            $username = $request->username;
+
+            filter_var($username, FILTER_VALIDATE_EMAIL) ?
+                $credentials['email'] = $username :
+                $credentials['phone'] = $username;
+
+            $credentials['password'] = $request->password;
+
+            if(! \Auth::guard('api')->once($credentials) )
+                return $this->response->errorUnauthorized('用户名或密码错误');
+
+            $user = \Auth::guard('api')->getUser();
+            $arrtrubutes['weapp_openid'] = $data['openid'];
+
+        }
+
+        $user->update($arrtrubutes);
+
+        $token = \Auth::guard('api')->fromUser($user);
+
+        return $this->respondWithToken($token)->setStatusCode(201);
+
     }
 
     public function update()
